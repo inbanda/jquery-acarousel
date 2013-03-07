@@ -90,7 +90,7 @@ body {
 
 /* Carousel Slide 1 */
 .acarousel-wrapper  ul li.slide-1 {
-	background: url('../images/slide1.png') no-repeat;
+	background: url('images/slide1.png') no-repeat;
 }
 .acarousel-wrapper ul.slides li.slide-1 .slide-content {
 	position: absolute;
@@ -111,7 +111,7 @@ body {
 }
 /* Carousel Slide 2 */
 .acarousel-wrapper ul.slides li.slide-2  {
-	background: url('../images/slide2.png') no-repeat;
+	background: url('images/slide2.png') no-repeat;
 }
 .acarousel-wrapper ul.slides li.slide-2 .slide-content {
 	position: absolute;
@@ -132,7 +132,7 @@ body {
 }
 /* Carousel Slide 3 */
 .acarousel-wrapper ul.slides li.slide-3  {
-	background: url('../images/slide3.png') no-repeat;
+	background: url('images/slide3.png') no-repeat;
 }
 .acarousel-wrapper ul.slides li.slide-3 .slide-content {
 	position: absolute;
