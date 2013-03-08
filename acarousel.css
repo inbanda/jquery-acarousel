@@ -52,14 +52,14 @@ body {
 	background: #333333;
 	height: 80px;
 	width: 80px;
-    -moz-border-radius: 60px; /* Firefox */  
+  -moz-border-radius: 60px; /* Firefox */  
 	-webkit-border-radius: 60px; /* Safari, Chrome */  
 	border-radius: 60px; /* CSS3 */  
-    color: #FFFFFF;
-    display: block;
-    font-size: 11px;
+  color: #FFFFFF;
+  display: block;
+  font-size: 11px;
 	line-height: 79px;
-    /* IE 8 */
+  /* IE 8 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 	/* IE 5-7 */
 	filter: alpha(opacity=80);
@@ -81,13 +81,6 @@ body {
 
 /* aCarousel Slide specific content 
 ************************************/
-
-
-
-
-
-
-
 /* Carousel Slide 1 */
 .acarousel-wrapper  ul li.slide-1 {
 	background: url('images/slide1.png') no-repeat;
@@ -103,8 +96,8 @@ body {
 }
 .acarousel-wrapper  ul li.slide-1 p {
 	color: #7F6369;
-    line-height: 22px;
-    padding: 10px 0;
+  line-height: 22px;
+  padding: 10px 0;
 }
 .acarousel-wrapper ul li.slide-1 a {
 	color: #FD3D40;
