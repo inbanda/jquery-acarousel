@@ -1,55 +1,37 @@
-// =======================================================
+//  =======================================================
 //  aCarousel jQuery plug-in 1.2
 //  by aldocoria(at)gmail.com -- github.com/aldocoria
 // =======================================================
 (function ( $, window, document, undefined ) {
-    // undefined is used here as the undefined global 
-    // variable in ECMAScript 3 and is mutable (i.e. it can 
-    // be changed by someone else). undefined isn't really 
-    // being passed in so we can ensure that its value is 
-    // truly undefined. In ES5, undefined can no longer be 
-    // modified.
-    
-    // window and document are passed through as local 
-    // variables rather than as globals, because this (slightly) 
-    // quickens the resolution process and can be more 
-    // efficiently minified (especially when both are 
-    // regularly referenced in your plugin).
-
-    // Create the defaults once
-    var aCarousel = 'aCarousel',
-        defaults = {
-            auto : true,
+  var aCarousel = 'aCarousel',
+    defaults = {
+      auto : true,
 			delay : 3000,
 			prevText : 'Previous',
 			nextText : 'Next'
-        };
-
-    // The actual plugin constructor
-    function Plugin(el, options) {
-        this.carousel = el;
+    };
+  // The actual plugin constructor
+  function Plugin(el, options) {
+    this.carousel = el;
 		this.slidesWrapper = $('ul', this.carousel);
 		this.slidesItems = $('ul li', this.carousel);
 		this.carouselWidth = $('.acarousel-inner', this.carousel).width();
 		this.currentSlide = 0;
 		this.totalWidth = this.slidesItems.length * this.carouselWidth;
 		this.intervalKilled = false;
-       
-        this.options = $.extend( {}, defaults, options) ;
-        
-        this._defaults = defaults;
-        this._name = aCarousel;
-        
-        this.init();
-    }
-
-    Plugin.prototype = {
-		init : function() {
-			this.addControls();
+    this.options = $.extend( {}, defaults, options) ;
+    this._defaults = defaults;
+    this._name = aCarousel;
+    
+    this.init();
+  }
+  Plugin.prototype = {
+    init : function() {
+      this.addControls();
 			var _this = this;
-		   // Auto Carousel 
+		  // Auto Carousel 
 			if (this.options.auto === true) {
-				this.carInterval = setInterval(function() { _this.intervalTick(); }, _this.options.delay);
+        this.carInterval = setInterval(function() { _this.intervalTick(); }, _this.options.delay);
 				// stop on mouseenter
 				$(this.carousel).mouseenter(function() {
 					clearInterval(_this.carInterval);
@@ -95,16 +77,15 @@
 			});
 		}		
     };
-
+    
     // A really lightweight plugin wrapper around the constructor, 
     // preventing against multiple instantiations
     $.fn[aCarousel] = function ( options ) {
-        return this.each(function () {
-            if (!$.data(this, 'plugin_' + aCarousel)) {
-                $.data(this, 'plugin_' + aCarousel, 
-                new Plugin( this, options ));
-            }
-        });
+      return this.each(function () {
+        if (!$.data(this, 'plugin_' + aCarousel)) {
+          $.data(this, 'plugin_' + aCarousel, 
+            new Plugin( this, options ));
+          }
+      });
     }
-
 })( jQuery, window, document );
