@@ -28,10 +28,6 @@ $('#myCarousel').aCarousel({
 });
 ```
 
-## Requirements and Compatibility
-
-Please note that this plugin requires jQuery version **1.9** or later.
-
 ## License
 
 This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
