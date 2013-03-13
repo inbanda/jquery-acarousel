@@ -7,14 +7,15 @@
         defaults = {
             'auto' : true,
             'delay' : 3000,
-            'prevText' : 'Previous',
-            'nextText' : 'Next'
+            'prevText' : '<',
+            'nextText' : '>',
+    		'showDots' : true
         };
     // The actual plugin constructor
     function Plugin(el, options) {
         this.carousel = el;
-        this.slidesWrapper = $('ul', this.carousel);
-        this.slidesItems = $('ul li', this.carousel);
+        this.slidesWrapper = $('.acarousel-inner ul', this.carousel);
+        this.slidesItems = $('.acarousel-inner ul li', this.carousel);
         this.carouselWidth = $('.acarousel-inner', this.carousel).width();
         this.currentSlide = 0;
         this.totalWidth = this.slidesItems.length * this.carouselWidth;
@@ -26,8 +27,15 @@
     }
     Plugin.prototype = {
         init : function () {
-            this.addControls();
-            var _this = this;
+			this.addControls();
+			if (this.options.showDots === true) {
+				this.showDots();
+				// First slide active
+				$('ul.acarousel-dots li#acarousel-dot-' + (this.currentSlide + 1)).addClass('active');
+			}
+            // First slide active
+			$('ul.slides li.slide-' + (this.currentSlide)).addClass('current');
+			var _this = this;
             // Auto Carousel 
             if (this.options.auto === true) {
                 this.carInterval = setInterval(function () { _this.intervalTick(); }, _this.options.delay);
@@ -41,6 +49,7 @@
                     if (_this.intervalKilled !== false) { _this.carInterval = setInterval(function () {_this.intervalTick();}, _this.options.delay); }
                 });
             }
+			
             $(this.carousel).addClass('acarousel-wrapper');
             this.slidesWrapper.addClass('slides');
             this.slidesItems.each(function (index) {
@@ -56,7 +65,9 @@
                 "left" : -offset
             }, 500, function () {
                 $('ul.slides li').removeClass('current');
+				$('ul.acarousel-dots li').removeClass('active');
                 $('ul.slides li.slide-' + currentSlide).addClass('current');
+				$('ul.acarousel-dots li#acarousel-dot-' + currentSlide).addClass('active');
             });
         },
         intervalTick : function () {
@@ -74,7 +85,13 @@
                 e.preventDefault();
                 _this.switchCarousel(_this.currentSlide = (_this.currentSlide + 1 < _this.slidesItems.length) ? _this.currentSlide + 1 : 0);
             });
-        }
+        },
+		showDots : function () {
+			$(this.carousel).append('<ul class="acarousel-dots"></ul>');
+			for (var i = 1; i <= this.slidesItems.length; i++) {
+				$('.acarousel-dots', this.carousel).append('<li class="acarousel-dot" id="acarousel-dot-' + i + '"></li>');
+			}
+		}
     };
     // A really lightweight plugin wrapper around the constructor, 
     // preventing against multiple instantiations
