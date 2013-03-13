@@ -25,6 +25,7 @@ $('#myCarousel').aCarousel({
 	'delay' : 5000, // default value = 4000ms. 
 	'nextText' : 'Adelante', // default value = 'Next'
 	'prevText' : 'Atras', // default value = 'Previous'
+	'showDots' : false // values: true, false
 });
 ```
 
