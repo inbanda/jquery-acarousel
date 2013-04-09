@@ -1,5 +1,5 @@
 //  =======================================================
-//  aCarousel jQuery plug-in 1.2
+//  aCarousel jQuery plug-in 1.2.1
 //  by aldocoria(at)gmail.com -- github.com/aldocoria
 // =======================================================
 (function ($, window, document, undefined) {
@@ -9,7 +9,7 @@
             'delay' : 3000,
             'prevText' : '<',
             'nextText' : '>',
-    		'showDots' : true
+            'showDots' : true
         };
     // The actual plugin constructor
     function Plugin(el, options) {
@@ -59,7 +59,7 @@
             this.slidesWrapper.css('width', this.totalWidth);
         },
         switchCarousel : function (index) {
-            var offset = $(this.carousel).width() * index,
+            var offset = this.carouselWidth * index,
                 currentSlide = index + 1;
             this.slidesWrapper.animate({
                 "left" : -offset
