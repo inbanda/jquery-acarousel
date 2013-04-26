@@ -1,5 +1,5 @@
 //  =======================================================
-//  aCarousel jQuery plug-in 1.2.1
+//  aCarousel jQuery plug-in 1.2.2
 //  by aldocoria(at)gmail.com -- github.com/aldocoria
 // =======================================================
 (function ($, window, document, undefined) {
@@ -88,10 +88,22 @@
         },
 		showDots : function () {
 			$(this.carousel).append('<ul class="acarousel-dots"></ul>');
+            this.carouselDots = $('.acarousel-dots', this.carousel);
 			for (var i = 1; i <= this.slidesItems.length; i++) {
-				$('.acarousel-dots', this.carousel).append('<li class="acarousel-dot" id="acarousel-dot-' + i + '"></li>');
+				this.carouselDots.append('<li class="acarousel-dot" id="acarousel-dot-' + i + '"></li>');
 			}
-		}
+            // call onDotClick method
+           this.onDotClick();
+		},
+        onDotClick : function() {
+            var _this = this,
+                slideClicked;
+            $(this.carouselDots, 'body').on('click', 'li', function(e) {
+                slideClicked = $(this).attr('id').split('-');
+                slideClicked = slideClicked[2];
+                _this.switchCarousel(slideClicked-1);
+            });
+        }
     };
     // A really lightweight plugin wrapper around the constructor, 
     // preventing against multiple instantiations
