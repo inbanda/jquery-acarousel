@@ -1,4 +1,4 @@
-aCarousel jQuery Plugin v1.2.2
+aCarousel jQuery Plugin v1.2.3
 ======================= 
 
 This is a jQuery Plugin that allows you to add a Carousel to your web page. Easy and quick! 
