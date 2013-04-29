@@ -1,5 +1,5 @@
 //  =======================================================
-//  aCarousel jQuery plug-in 1.2.2
+//  aCarousel jQuery plug-in 1.2.3
 //  by aldocoria(at)gmail.com -- github.com/aldocoria
 // =======================================================
 (function ($, window, document, undefined) {
@@ -49,7 +49,6 @@
                     if (_this.intervalKilled !== false) { _this.carInterval = setInterval(function () {_this.intervalTick();}, _this.options.delay); }
                 });
             }
-			
             $(this.carousel).addClass('acarousel-wrapper');
             this.slidesWrapper.addClass('slides');
             this.slidesItems.each(function (index) {
@@ -61,6 +60,7 @@
         switchCarousel : function (index) {
             var offset = this.carouselWidth * index,
                 currentSlide = index + 1;
+            this.currentSlide = index;
             this.slidesWrapper.animate({
                 "left" : -offset
             }, 500, function () {
@@ -100,10 +100,13 @@
                 slideClicked;
             $(this.carouselDots, 'body').on('click', 'li', function(e) {
                 slideClicked = $(this).attr('id').split('-');
-                slideClicked = slideClicked[2];
-                _this.switchCarousel(slideClicked-1);
+                slideClicked = slideClicked[2]-1;
+                if (slideClicked !== _this.currentSlide) {
+                    _this.switchCarousel(slideClicked); 
+                }
             });
-        }
+        },
+        
     };
     // A really lightweight plugin wrapper around the constructor, 
     // preventing against multiple instantiations
