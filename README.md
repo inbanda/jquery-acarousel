@@ -5,7 +5,7 @@ This is a jQuery Plugin that allows you to add a Carousel to your web page. Easy
 
 
 ## Usage  
-First, download and include `jquery-acarousel.js` (or the minified version) in your HTML document
+First, download and include `jquery.acarousel.js` (or the minified version) in your HTML document
 
 ```html
 <script src="/path/to/jquery.acarousel.js"></script>
