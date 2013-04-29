@@ -105,7 +105,7 @@
                     _this.switchCarousel(slideClicked); 
                 }
             });
-        },
+        }
         
     };
     // A really lightweight plugin wrapper around the constructor, 
